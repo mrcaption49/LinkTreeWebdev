@@ -1,1031 +1,761 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Pranav Bakare | Links</title>
-
-    <meta name="description" content="Pranav Bakare - Oracle PL/SQL Developer">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap"
-        rel="stylesheet">
-
-    <style>
-        :root {
-
-            --bg: #F6F7F9;
-
-            --grid-line: rgba(18, 22, 29, .05);
-
-            --surface: #fff;
-
-            --border: #E3E6EC;
-
-            --text: #12161D;
-
-            --text-mid: #596170;
-
-            --text-dim: #97A0AE;
-
-            --accent: #1E7A5C;
-
-            --accent-dark: #155C45;
-
-            --accent-soft: #E5F3EC;
-
-            --highlight: #D9622B;
-
-            --highlight-soft: #FBEAE0;
-
-            --display: 'Space Grotesk', sans-serif;
-
-            --sans: 'Inter', sans-serif;
-
-            --mono: 'IBM Plex Mono', monospace;
-
-            --radius: 14px;
-
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html,
-        body {
-
-            background:
-                linear-gradient(var(--grid-line) 1px, transparent 1px) 0 0/100% 34px,
-                linear-gradient(90deg, var(--grid-line) 1px, transparent 1px) 0 0/34px 100%,
-                var(--bg);
-
-            font-family: var(--sans);
-
-            color: var(--text);
-
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .wrap {
-
-            max-width: 1150px;
-
-            margin: auto;
-
-            padding: 50px 24px 80px;
-
-        }
-
-        /*==========================
-Console
-==========================*/
-
-        .console {
-
-            background: #fff;
-
-            border: 1px solid var(--border);
-
-            border-radius: 14px;
-
-            overflow: hidden;
-
-            box-shadow: 0 10px 35px rgba(0, 0, 0, .05);
-
-        }
-
-        .console-bar {
-
-            display: flex;
-
-            align-items: center;
-
-            padding: 12px 18px;
-
-            border-bottom: 1px solid var(--border);
-
-            background: #fafafa;
-
-            gap: 10px;
-
-        }
-
-        .dot {
-
-            width: 10px;
-
-            height: 10px;
-
-            border-radius: 50%;
-
-        }
-
-        .dot:nth-child(1) {
-            background: #ea5d5d;
-        }
-
-        .dot:nth-child(2) {
-            background: #efbb42;
-        }
-
-        .dot:nth-child(3) {
-            background: #4ab56b;
-        }
-
-        .console-title {
-
-            font-family: var(--mono);
-
-            font-size: 12px;
-
-            color: var(--text-dim);
-
-        }
-
-        .console-body {
-
-            padding: 18px;
-
-            font-family: var(--mono);
-
-            font-size: 14px;
-
-        }
-
-        .prompt {
-            color: var(--accent);
-            font-weight: 600;
-        }
-
-        .cursor {
-
-            display: inline-block;
-
-            width: 8px;
-
-            height: 16px;
-
-            background: var(--accent);
-
-            margin-left: 2px;
-
-            animation: blink 1s infinite;
-
-        }
-
-        @keyframes blink {
-
-            50% {
-                opacity: 0;
-            }
-
-        }
-
-        /*==========================
-Profile
-==========================*/
-
-        .profile {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 18px;
-
-            margin: 35px 0 15px;
-
-        }
-
-        .avatar {
-
-            width: 64px;
-
-            height: 64px;
-
-            border-radius: 18px;
-
-            background: linear-gradient(140deg, var(--accent), var(--accent-dark));
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            font-size: 22px;
-
-            font-family: var(--display);
-
-            font-weight: 700;
-
-            color: #fff;
-
-        }
-
-        .profile-info h1 {
-
-            font-family: var(--display);
-
-            font-size: 28px;
-
-            margin-bottom: 6px;
-
-        }
-
-        .role {
-
-            font-family: var(--mono);
-
-            font-size: 13px;
-
-            color: var(--text-mid);
-
-        }
-
-        .tagline {
-
-            max-width: 650px;
-
-            margin-bottom: 40px;
-
-            line-height: 1.7;
-
-            color: var(--text-mid);
-
-        }
-
-        /*==========================
-NEW CARD GRID
-==========================*/
-
-        .cards-grid {
-
-            display: grid;
-
-            grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
-
-            gap: 28px;
-
-        }
-
-        .section-card {
-
-            background: #fff;
-
-            border: 1px solid var(--border);
-
-            border-radius: 18px;
-
-            overflow: hidden;
-
-            transition: .25s;
-
-            box-shadow: 0 6px 18px rgba(0, 0, 0, .04);
-
-        }
-
-        .section-card:hover {
-
-            transform: translateY(-6px);
-
-            box-shadow: 0 20px 45px rgba(0, 0, 0, .08);
-
-        }
-
-        .card-header {
-
-            padding: 20px;
-
-            border-bottom: 1px solid var(--border);
-
-            background: #fbfbfb;
-
-        }
-
-        .card-header h2 {
-
-            font-family: var(--display);
-
-            font-size: 20px;
-
-        }
-
-        .card-header p {
-
-            margin-top: 5px;
-
-            font-family: var(--mono);
-
-            font-size: 12px;
-
-            color: var(--text-dim);
-
-        }
-
-        .card-links {
-
-            padding: 12px;
-
-            display: flex;
-
-            flex-direction: column;
-
-            gap: 8px;
-
-        }
-
-        .link-item {
-
-            display: flex;
-
-            justify-content: space-between;
-
-            align-items: center;
-
-            padding: 14px;
-
-            border-radius: 12px;
-
-            transition: .2s;
-
-        }
-
-        .link-item:hover {
-
-            background: var(--accent-soft);
-
-        }
-
-        .left {
-
-            display: flex;
-
-            flex-direction: column;
-
-        }
-
-        .left strong {
-
-            font-size: 15px;
-
-            font-weight: 600;
-
-        }
-
-        .left span {
-
-            margin-top: 4px;
-
-            font-size: 12px;
-
-            font-family: var(--mono);
-
-            color: var(--text-dim);
-
-        }
-
-        .right {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 10px;
-
-        }
-
-        .badge {
-
-            font-size: 11px;
-
-            font-family: var(--mono);
-
-            padding: 3px 8px;
-
-            border-radius: 5px;
-
-            background: var(--accent-soft);
-
-            color: var(--accent-dark);
-
-        }
-
-        .arrow {
-
-            font-size: 18px;
-
-            color: var(--text-dim);
-
-            transition: .2s;
-
-        }
-
-        .link-item:hover .arrow {
-
-            transform: translateX(4px);
-
-        }
-
-        .featured .badge {
-
-            background: var(--highlight-soft);
-
-            color: var(--highlight);
-
-        }
-
-        /*==========================
-Footer
-==========================*/
-
-        .footer {
-
-            margin-top: 50px;
-
-            display: flex;
-
-            justify-content: space-between;
-
-            align-items: center;
-
-            flex-wrap: wrap;
-
-            gap: 15px;
-
-        }
-
-        .footer-meta {
-
-            font-family: var(--mono);
-
-            font-size: 12px;
-
-            color: var(--text-dim);
-
-        }
-
-        .footer-links {
-
-            display: flex;
-
-            gap: 18px;
-
-            font-family: var(--mono);
-
-            font-size: 12px;
-
-        }
-
-        .footer-links a:hover {
-
-            color: var(--accent);
-
-        }
-
-        @media(max-width:768px) {
-
-            .cards-grid {
-
-                grid-template-columns: 1fr;
-
-            }
-
-            .profile {
-
-                flex-direction: column;
-
-                align-items: flex-start;
-
-            }
-
-        }
-    </style>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pranav Bakare — links@pranav</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F6F7F9;
+  --grid-line: rgba(18,22,29,0.045);
+  --surface:#FFFFFF;
+  --border:#E3E6EC;
+  --border-strong:#CBD1DC;
+  --text:#12161D;
+  --text-mid:#525A68;
+  --text-dim:#95A0AF;
+  --accent:#1E7A5C;
+  --accent-dark:#155C45;
+  --accent-soft:#E5F3EC;
+  --highlight:#D9622B;
+  --highlight-soft:#FBEAE0;
+  --danger:#C0392B;
+  --danger-soft:#FBEAE8;
+  --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+  --sans: 'Inter', -apple-system, sans-serif;
+  --display: 'Space Grotesk', -apple-system, sans-serif;
+  --radius: 10px;
+}
+
+*{ box-sizing:border-box; }
+
+html,body{
+  margin:0;
+  padding:0;
+  background:
+    linear-gradient(var(--grid-line) 1px, transparent 1px) 0 0/100% 34px,
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px) 0 0/34px 100%,
+    var(--bg);
+  color:var(--text);
+  font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;
+}
+
+a{ color:inherit; text-decoration:none; }
+
+.wrap{
+  max-width:1100px;
+  margin:0 auto;
+  padding:56px 20px 80px;
+  display:flex;
+  flex-direction:column;
+  gap:22px;
+}
+
+.wrap.wide{ max-width:820px; }
+
+/* ---- console header ---- */
+.console{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:0 1px 2px rgba(18,22,29,0.04), 0 10px 30px -18px rgba(18,22,29,0.18);
+  overflow:hidden;
+}
+
+.console-bar{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 14px;
+  border-bottom:1px solid var(--border);
+  background:#FBFBFC;
+}
+
+.dot{ width:9px; height:9px; border-radius:50%; }
+.dot:nth-child(1){ background:#E5595C; }
+.dot:nth-child(2){ background:#E8B23D; }
+.dot:nth-child(3){ background:#3FA36C; }
+
+.console-title{
+  margin-left:6px;
+  font-family:var(--mono);
+  font-size:12px;
+  color:var(--text-dim);
+  letter-spacing:0.02em;
+}
+
+.console-body{
+  padding:20px 18px 22px;
+  font-family:var(--mono);
+  font-size:14px;
+  line-height:1.6;
+  color:var(--text-mid);
+}
+
+.console-body .prompt{ color:var(--accent-dark); }
+.console-body .query{ color:var(--text); }
+
+.cursor{
+  display:inline-block;
+  width:7px;
+  height:15px;
+  background:var(--accent);
+  margin-left:2px;
+  transform:translateY(2px);
+  animation:blink 1s step-end infinite;
+}
+@keyframes blink{ 50%{ opacity:0; } }
+
+/* ---- profile ---- */
+.profile{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin:0 4px;
+}
+
+.avatar{
+  flex:0 0 auto;
+  width:58px;
+  height:58px;
+  border-radius:14px;
+  background:linear-gradient(155deg, var(--accent) 0%, var(--accent-dark) 100%);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:var(--display);
+  font-weight:700;
+  font-size:19px;
+  letter-spacing:0.02em;
+  box-shadow:0 8px 20px -8px rgba(30,122,92,0.55);
+}
+
+.id-block h1{
+  font-family:var(--display);
+  font-size:22px;
+  font-weight:700;
+  margin:0 0 4px;
+  letter-spacing:-0.01em;
+}
+
+.id-block .role{
+  font-family:var(--mono);
+  font-size:12.5px;
+  color:var(--text-mid);
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+
+.status-dot{
+  width:7px; height:7px; border-radius:50%;
+  background:var(--accent);
+  animation:pulse 2.2s ease-out infinite;
+}
+@keyframes pulse{
+  0%{ box-shadow:0 0 0 0 rgba(30,122,92,0.45); }
+  70%{ box-shadow:0 0 0 7px rgba(30,122,92,0); }
+  100%{ box-shadow:0 0 0 0 rgba(30,122,92,0); }
+}
+
+.tagline{
+  margin:0 4px;
+  font-size:14.5px;
+  color:var(--text-mid);
+  line-height:1.55;
+  max-width:none;
+}
+
+/* ---- shared row primitives ---- */
+.row-index{
+  font-family:var(--mono);
+  font-size:12px;
+  color:var(--text-dim);
+  width:22px;
+  flex:0 0 auto;
+}
+
+.row-main{ min-width:0; flex:1 1 auto; }
+
+.row-title{
+  font-family:var(--display);
+  font-weight:600;
+  font-size:15px;
+  color:var(--text);
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.row-url{
+  font-family:var(--mono);
+  font-size:11.5px;
+  color:var(--text-dim);
+  margin-top:2px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.badge{
+  font-family:var(--mono);
+  font-size:10px;
+  font-weight:500;
+  letter-spacing:0.03em;
+  padding:2px 7px;
+  border-radius:5px;
+  color:var(--accent-dark);
+  background:var(--accent-soft);
+  text-transform:lowercase;
+}
+.link-card.featured .badge, .manage-row.featured .badge{ color:var(--highlight); background:var(--highlight-soft); }
+
+.arrow{
+  flex:0 0 auto;
+  color:var(--text-dim);
+  opacity:0.6;
+  transition:transform 0.15s ease, opacity 0.15s ease;
+}
+
+/* ---- sections as cards ---- */
+.section-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:18px 18px 20px;
+  margin:0 4px;
+  box-shadow:0 1px 2px rgba(18,22,29,0.03), 0 14px 30px -22px rgba(18,22,29,0.16);
+}
+
+.section-card-header{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:10px;
+  padding-bottom:12px;
+  margin-bottom:14px;
+  border-bottom:1px dashed var(--border);
+}
+
+.section-card-header .label{
+  font-family:var(--mono);
+  font-size:12px;
+  color:var(--text-dim);
+  letter-spacing:0.04em;
+}
+.section-card-header .label span{ color:var(--border-strong); }
+
+.section-card-header .count{
+  font-family:var(--mono);
+  font-size:11px;
+  color:var(--text-dim);
+}
+
+.links-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));
+  gap:12px;
+}
+
+.link-card{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  padding:14px 14px 13px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  background:var(--bg);
+  opacity:0;
+  transform:translateY(6px);
+  animation:rise 0.5s ease forwards;
+  transition:transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+.link-card:hover{
+  background:var(--accent-soft);
+  border-color:var(--accent);
+  transform:translateY(-3px);
+  box-shadow:0 10px 22px -14px rgba(30,122,92,0.45);
+}
+.link-card.featured{ background:#fff; border-color:var(--highlight); }
+.link-card.featured:hover{ background:var(--highlight-soft); border-color:var(--highlight); }
+
+.link-card-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.link-card .row-index{ width:auto; }
+
+.link-card .arrow{
+  transform:translateX(0) rotate(0deg);
+}
+.link-card:hover .arrow{ transform:translate(2px,-2px); opacity:1; }
+
+.link-card .row-title{ font-size:14.5px; }
+.link-card .row-url{ margin-top:0; }
+
+@keyframes rise{ to{ opacity:1; transform:translateY(0); } }
+
+@media (max-width:420px){
+  .links-grid{ grid-template-columns:1fr; }
+}
+
+/* ---- footer ---- */
+.footer{
+  padding:0 4px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.footer-meta{ font-family:var(--mono); font-size:14px; color:var(--text-dim); }
+.footer-meta b{ color:var(--text-mid); font-weight:600; }
+
+.footer-links{ display:flex; gap:14px; }
+
+.footer-links a{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-family:var(--mono);
+  font-size:14px;
+  font-weight:500;
+  color:var(--text-mid);
+  padding:12px 20px;
+  border:1.5px solid var(--border-strong);
+  border-radius:999px;
+  background:var(--surface);
+  transition:background 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
+}
+.footer-links a::before{
+  content:"→";
+  font-size:11px;
+  transition:transform 0.15s ease;
+}
+.footer-links a:hover{
+  background:var(--accent-soft);
+  border-color:var(--accent);
+  color:var(--accent-dark);
+  transform:translateY(-1px);
+  box-shadow:0 6px 16px -10px rgba(30,122,92,0.35);
+}
+.footer-links a:hover::before{ transform:translateX(2px); }
+.footer-links a:active{ transform:translateY(0); }
+
+@media (max-width:420px){
+  .wrap{ padding:40px 14px 60px; }
+  .row-url{ display:none; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .row{ animation:none; opacity:1; transform:none; }
+  .cursor{ animation:none; }
+  .status-dot{ animation:none; }
+}
+</style>
 </head>
-
 <body>
+<div class="wrap">
 
-    <div class="wrap">
-
-        <div class="console">
-
-            <div class="console-bar">
-
-                <span class="dot"></span>
-
-                <span class="dot"></span>
-
-                <span class="dot"></span>
-
-                <span class="console-title">
-
-                    session — linksPrd@PranavBakare
-
-                </span>
-
-            </div>
-
-            <div class="console-body">
-
-                <b><span class="prompt">SQL&gt;</span></b>
-
-                <span id="typedQuery"></span>
-
-                <span class="cursor"></span>
-
-            </div>
-
-        </div>
-
-        <div class="profile">
-
-            <div class="avatar">
-
-                PB
-
-            </div>
-
-            <div class="profile-info">
-
-                <h1>Pranav Bakare</h1>
-
-                <div class="role">
-
-                    Oracle PL/SQL Developer • Pune, India
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <p class="tagline">
-
-            Meticulous Oracle PL/SQL Developer with around 5 years of experience across
-            telecom and aviation domains, delivering high-performance database solutions
-            for Vodafone Idea's 218M+ user base and Accelya's global airline cargo platform.
-            Proven expertise in performance tuning, secure database architecture,
-            CI/CD-driven deployments.
-
-        </p>
-
-        <div class="cards-grid" id="results">
-
-        </div>
-
-        <div class="footer">
-
-            <div class="footer-meta">
-
-                <b id="rowCount">0</b> links
-
-            </div>
-
-            <div class="footer-links">
-
-                <a href="https://github.com/mrcaption49" target="_blank">
-
-                    GitHub
-
-                </a>
-
-                <a href="https://linkedin.com/in/pranavbakare" target="_blank">
-
-                    LinkedIn
-
-                </a>
-
-                <a href="mailto:pranavsb49@gmail.com">
-
-                    Email
-
-                </a>
-
-            </div>
-
-        </div>
-
+  <div class="console">
+    <div class="console-bar">
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      <span class="console-title">session — links@pranavbakare</span>
     </div>
-
-    <script>
-
-        const data = [
-
-            {
-
-                section: "Connect",
-
-                rows: [
-
-                    {
-
-                        title: "Instagram",
-
-                        url: "instagram.com/mrcaption49",
-
-                        href: "https://instagram.com/mrcaption49",
-
-                        tag: "social"
-
-                    },
-
-                    {
-
-                        title: "LinkedIn",
-
-                        url: "linkedin.com/in/pranavbakare",
-
-                        href: "https://linkedin.com/in/pranavbakare",
-
-                        tag: "social"
-
-                    },
-
-                    {
-
-                        title: "GitHub",
-
-                        url: "github.com/mrcaption49",
-
-                        href: "https://github.com/mrcaption49",
-
-                        tag: "code"
-
-                    },
-
-                    {
-
-                        title: "Email",
-
-                        url: "pranavsb49@gmail.com",
-
-                        href: "mailto:pranavsb49@gmail.com",
-
-                        tag: "contact"
-
-                    }
-
-                ]
-
-            },
-
-            {
-
-                section: "Work",
-
-                rows: [
-
-                    {
-
-                        title: "Portfolio",
-
-                        url: "portfolio.onrender.com",
-
-                        href: "https://protfolio-website-mrcaption49-2-0.onrender.com",
-
-                        tag: "featured",
-
-                        featured: true
-
-                    },
-
-                    {
-
-                        title: "Resume",
-
-                        url: "Google Docs",
-
-                        href: "https://docs.google.com/document/d/13q1pi4t1SH8HIa65V9g_b6vmq5QAWdcr/edit",
-
-                        tag: "resume"
-
-                    },
-
-                    {
-
-                        title: "React Portfolio",
-
-                        url: "portfolio-k80f.onrender.com",
-
-                        href: "https://portfolio-k80f.onrender.com",
-
-                        tag: "react"
-
-                    }
-
-                ]
-
-            },
-
-            {
-
-                section: "Writing",
-
-                rows: [
-
-                    {
-
-                        title: "Medium",
-
-                        url: "medium.com/@pranavsb699",
-
-                        href: "https://medium.com/@pranavsb699",
-
-                        tag: "blog"
-
-                    },
-
-                    {
-
-                        title: "DEV Community",
-
-                        url: "dev.to/mrcaption49",
-
-                        href: "https://dev.to/mrcaption49",
-
-                        tag: "blog"
-
-                    },
-
-                    {
-
-                        title: "Blog Application",
-
-                        url: "djangoblog49.onrender.com",
-
-                        href: "https://djangoblog49.onrender.com",
-
-                        tag: "project"
-
-                    }
-
-                ]
-
-            },
-
-            {
-                section: "Projects",
-
-                rows: [
-
-                    {
-                        title: "Web Development Projects",
-
-                        url: "webdev49.onrender.com",
-
-                        href: "https://webdev49.onrender.com",
-
-                        tag: "project"
-                    },
-
-                    {
-                        title: "Django + PayPal Store",
-
-                        url: "django-paypal49.onrender.com",
-
-                        href: "https://django-paypal49.onrender.com",
-
-                        tag: "project"
-                    },
-
-                    {
-                        title: "Photo Album",
-
-                        url: "django-photoalbum-2025.onrender.com",
-
-                        href: "https://django-photoalbum-2025.onrender.com",
-
-                        tag: "gallery"
-                    },
-
-                    {
-                        title: "Coursera Profile",
-
-                        url: "coursera.org",
-
-                        href: "https://www.coursera.org/user/ad8ef8ec22e040a5470e9978e9f1bc1c",
-
-                        tag: "learning"
-                    },
-
-                    {
-                        title: "Research Paper",
-
-                        url: "ijarsct.co.in",
-
-                        href: "https://ijarsct.co.in/Paper1504.pdf",
-
-                        tag: "paper"
-                    },
-
-                    {
-                        title: "Django Video Gallery",
-
-                        url: "djangovideogallery49.onrender.com",
-
-                        href: "https://djangovideogallery49.onrender.com/",
-
-                        tag: "gallery"
-                    }
-
-                ]
-
-            },
-
-            {
-                section: "Banking",
-
-                rows: [
-
-                    {
-                        title: "ICICI Bank",
-
-                        url: "icici.bank.in",
-
-                        href: "https://www.icici.bank.in/personal-banking/ways-to-bank/net-banking",
-
-                        tag: "netbanking"
-                    },
-
-                    {
-                        title: "Kotak Bank",
-
-                        url: "netbanking.kotak.bank.in",
-
-                        href: "https://netbanking.kotak.bank.in/knb2/",
-
-                        tag: "netbanking"
-                    },
-
-                    {
-                        title: "Federal Bank",
-
-                        url: "fednetbank.com",
-
-                        href: "https://www.fednetbank.com/",
-
-                        tag: "netbanking"
-                    },
-
-                    {
-                        title: "HDFC Bank",
-
-                        url: "now.hdfc.bank.in",
-
-                        href: "https://now.hdfc.bank.in/auth/realms/retail/protocol/openid-connect/auth?response_type=code&client_id=bb-web-client&state=ZFpndEh0fnBKaXFlRTZZQXVnX1NtbG1pb2R1YmlELkxQem55dE1XUGxTcDlX&redirect_uri=https%3A%2F%2Fnow.hdfc.bank.in%2Fretail-app%2Fselect-context&scope=openid&code_challenge=98LBL7ZQk0hzFXtAqGZWS-Q-Bjsy6XKzENKRLFuJKZU&code_challenge_method=S256&nonce=ZFpndEh0fnBKaXFlRTZZQXVnX1NtbG1pb2R1YmlELkxQem55dE1XUGxTcDlX",
-
-                        tag: "netbanking"
-                    },
-
-                    {
-                        title: "SBI Bank",
-
-                        url: "yonoretail.sbi.bank.in",
-
-                        href: "https://yonoretail.sbi.bank.in/registration/welcome",
-
-                        tag: "netbanking"
-                    },
-
-                    {
-                        title: "Axis Bank",
-
-                        url: "omni.axis.bank.in",
-
-                        href: "https://omni.axis.bank.in/axisretailbanking/",
-
-                        tag: "netbanking"
-                    },
-
-                    {
-                        title: "BOI Bank",
-
-                        url: "uaibconnect.bankofindia.bank.in",
-
-                        href: "https://uaibconnect.bankofindia.bank.in/omnineo",
-
-                        tag: "netbanking"
-                    }
-
-                ]
-
-            }
-
-        ];
-
-        const results = document.getElementById("results");
-
-        let totalLinks = 0;
-
-        data.forEach(section => {
-
-            totalLinks += section.rows.length;
-
-            const card = document.createElement("div");
-
-            card.className = "section-card";
-
-            card.innerHTML = `
-
-        <div class="card-header">
-
-            <h2>${section.section}</h2>
-
-            <p>${section.rows.length} Links</p>
-
-        </div>
-
-        <div class="card-links"></div>
-
-    `;
-
-            const links = card.querySelector(".card-links");
-
-            section.rows.forEach(item => {
-
-                const a = document.createElement("a");
-
-                a.className = "link-item";
-
-                if (item.featured) {
-
-                    a.classList.add("featured");
-
-                }
-
-                a.href = item.href;
-
-                a.target = item.href.startsWith("mailto") ? "_self" : "_blank";
-
-                a.rel = "noopener";
-
-                a.innerHTML = `
-
-            <div class="left">
-
-                <strong>${item.title}</strong>
-
-                <span>${item.url}</span>
-
-            </div>
-
-            <div class="right">
-
-                <span class="badge">${item.tag}</span>
-
-                <span class="arrow">↗</span>
-
-            </div>
-
-        `;
-
-                links.appendChild(a);
-
-            });
-
-            results.appendChild(card);
-
-        });
-
-        document.getElementById("rowCount").textContent = totalLinks;
-
-        const query = "SELECT * FROM links WHERE owner='pranav_bakare';";
-
-        const typed = document.getElementById("typedQuery");
-
-        let index = 0;
-
-        function type() {
-
-            if (index <= query.length) {
-
-                typed.textContent = query.substring(0, index);
-
-                index++;
-
-                setTimeout(type, 20);
-
-            }
-
-        }
-
-        type();
-
-    </script>
-
+    <div class="console-body">
+      <span class="prompt">SQL&gt;</span>
+      <span class="query">SELECT * FROM links WHERE owner = 'pranav_bakare' and username = 'mrcaption49';</span><span class="cursor"></span>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-meta"><b>30</b> rows returned</div>
+    <div class="footer-links">
+      <a href="#">manage links</a>
+    </div>
+  </div>
+
+  <div class="profile">
+    <div class="avatar">PB</div>
+    <div class="id-block">
+      <h1>Pranav Bakare</h1>
+      <div class="role"><span class="status-dot"></span>Oracle PL/SQL Developer · Pune, Maharashtra, India</div>
+    </div>
+  </div>
+
+  <p class="tagline">Meticulous Oracle PL/SQL Developer with around 5 years of experience across telecom and aviation domains, delivering high-performance database solutions for Vodafone Idea's 218M+ user base and Accelya's global airline cargo platform. Proven expertise in performance tuning, secure database architecture, CI/CD-driven deployments.</p>
+
+  <div class="section-card">
+    <div class="section-card-header">
+      <span class="label"><span>--</span> CONNECT</span>
+      <span class="count">4 links</span>
+    </div>
+    <div class="links-grid">
+      <a href="https://instagram.com/mrcaption49" target="_blank" rel="noopener" class="link-card" style="animation-delay: 10ms">
+        <span class="link-card-top">
+          <span class="row-index">01</span>
+          <svg class="arrow" width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="row-main">
+          <span class="row-title">Instagram<span class="badge">social</span></span>
+          <span class="row-url">instagram.com/mrcaption49</span>
+        </span>
+      </a>
+      <a href="https://linkedin.com/in/pranavbakare" target="_blank" rel="noopener" class="link-card" style="animation-delay: 20ms">
+        <span class="link-card-top">
+          <span class="row-index">02</span>
+          <svg class="arrow" width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="row-main">
+          <span class="row-title">LinkedIn<span class="badge">social</span></span>
+          <span class="row-url">linkedin.com/in/pranavbakare</span>
+        </span>
+      </a>
+      <a href="https://github.com/mrcaption49" target="_blank" rel="noopener" class="link-card" style="animation-delay: 30ms">
+        <span class="link-card-top">
+          <span class="row-index">03</span>
+          <svg class="arrow" width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="row-main">
+          <span class="row-title">GitHub<span class="badge">code</span></span>
+          <span class="row-url">github.com/mrcaption49</span>
+        </span>
+      </a>
+      <a href="mailto:pranavsb49@gmail.com" class="link-card" style="animation-delay: 40ms">
+        <span class="link-card-top">
+          <span class="row-index">04</span>
+          <svg class="arrow" width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="row-main">
+          <span class="row-title">Email<span class="badge">contact</span></span>
+          <span class="row-url">pranavsb49@gmail.com</span>
+        </span>
+      </a>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-header">
+      <span class="label"><span>--</span> WORK</span>
+      <span class="count">3 links</span>
+    </div>
+    <div class="links-grid">
+      <a href="https://protfolio-website-mrcaption49-2-0.onrender.com" target="_blank" rel="noopener" class="link-card featured" style="animation-delay: 10ms">
+        <span class="link-card-top">
+          <span class="row-index">01</span>
+          <svg class="arrow" width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="row-main">
+          <span class="row-title">Portfolio<span class="badge">featured</span></span>
+          <span class="row-url">portfolio.onrender.com</span>
+        </span>
+      </a>
+      <a href="https://docs.google.com/document/d/13q1pi4t1SH8HIa65V9g_b6vmq5QAWdcr/edit" target="_blank" rel="noopener" class="link-card" style="animation-delay: 20ms">
+        <span class="link-card-top">
+          <span class="row-index">02</span>
+          <svg class="arrow" width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="row-main">
+          <span class="row-title">Resume<span class="badge">resume</span></span>
+          <span class="row-url">Google Docs</span>
+        </span>
+      </a>
+      <a href="https://portfolio-k80f.onrender.com" target="_blank" rel="noopener" class="link-card" style="animation-delay: 30ms">
+        <span class="link-card-top">
+          <span class="row-index">03</span>
+          <svg class="arrow" width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="row-main">
+          <span class="row-title">React Portfolio<span class="badge">react</span></span>
+          <span class="row-url">portfolio-k80f.onrender.com</span>
+        </span>
+      </a>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-header">
+      <span class="label"><span>--</span> WRITING</span>
+      <span class="count">3 links</span>
+    </div>
+    <div class="links-grid">
+      <a href="https://medium.com/@pranavsb699" target="_blank" rel="noopener" class="link-card" style="animation-delay: 10ms">
+        <span class="link-card-top">
+          <span class="row-index">01</span>
+          <svg class="arrow" width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="row-main">
+          <span class="row-title">Medium<span class="badge">blog</span></span>
+          <span class="row-url">medium.com/@pranavsb699</span>
+        </span>
+      </a>
+      <a href="https://dev.to/mrcaption49" target="_blank" rel="noopener" class="link-card" style="animation-delay: 20ms">
+        <span class="link-card-top">
+          <span class="row-index">02</span>
+          <svg class="arrow" width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="row-main">
+          <span class="row-title">DEV Community<span class="badge">blog</span></span>
+          <span class="row-url">dev.to/mrcaption49</span>
+        </span>
+      </a>
+      <a href="https://djangoblog49.onrender.com" target="_blank" rel="noopener" class="link-card" style="animation-delay: 30ms">
+        <span class="link-card-top">
+          <span class="row-index">03</span>
+          <svg class="arrow" width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="row-main">
+          <span class="row-title">Blog Application<span class="badge">project</span></span>
+          <span class="row-url">djangoblog49.onrender.com</span>
+        </span>
+      </a>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-header">
+      <span class="label"><span>--</span> PROJECTS</span>
+      <span class="count">6 links</span>
+    </div>
+    <div class="links-grid">
+      <a href="https://webdev49.onrender.com" target="_blank" rel="noopener" class="link-card" style="animation-delay: 10ms">
+        <span class="link-card-top">
+          <span class="row-index">01</span>
+          <svg class="arrow" width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="row-main">
+          <span class="row-title">Web Development Projects<span class="badge">project</span></span>
+          <span class="row-url">webdev49.onrender.com</span>
+        </span>
+      </a>
+      <a href="https://django-paypal49.onrender.com" target="_blank" rel="noopener" class="link-card" style="animation-delay: 20ms">
+        <span class="link-card-top">
+          <span class="row-index">02</span>
+          <svg class="arrow" width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="row-main">
+          <span class="row-title">Django + PayPal Store<span class="badge">project</span></span>
+          <span class="row-url">django-paypal49.onrender.com</span>
+        </span>
+      </a>
+      <a href="https://django-photoalbum-2025.onrender.com" target="_blank" rel="noopener" class="link-card" style="animation-delay: 30ms">
+        <span class="link-card-top">
+          <span class="row-index">03</span>
+          <svg class="arrow" width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="row-main">
+          <span class="row-title">Photo Album<span class="badge">gallery</span></span>
+          <span class="row-url">django-photoalbum-2025.onrender.com</span>
+        </span>
+      </a>
+      <a href="https://www.coursera.org/user/ad8ef8ec22e040a5470e9978e9f1bc1c" target="_blank" rel="noopener" class="link-card" style="animation-delay: 40ms">
+        <span class="link-card-top">
+          <span class="row-index">04</span>
+          <svg class="arrow" width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="row-main">
+          <span class="row-title">Coursera Profile<span class="badge">learning</span></span>
+          <span class="row-url">coursera.org</span>
+        </span>
+      </a>
+      <a href="https://ijarsct.co.in/Paper1504.pdf" target="_blank" rel="noopener" class="link-card" style="animation-delay: 50ms">
+        <span class="link-card-top">
+          <span class="row-index">05</span>
+          <svg class="arrow" width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="row-main">
+          <span class="row-title">Research Paper<span class="badge">paper</span></span>
+          <span class="row-url">ijarsct.co.in</span>
+        </span>
+      </a>
+      <a href="https://djangovideogallery49.onrender.com/" target="_blank" rel="noopener" class="link-card" style="animation-delay: 60ms">
+        <span class="link-card-top">
+          <span class="row-index">06</span>
+          <svg class="arrow" width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="row-main">
+          <span class="row-title">Django Video Gallery<span class="badge">gallery</span></span>
+          <span class="row-url">djangovideogallery49.onrender.com</span>
+        </span>
+      </a>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-header">
+      <span class="label"><span>--</span> MUTUAL FUNDS</span>
+      <span class="count">5 links</span>
+    </div>
+    <div class="links-grid">
+      <a href="https://invest.quantmutualfund.com/" target="_blank" rel="noopener" class="link-card" style="animation-delay: 10ms">
+        <span class="link-card-top">
+          <span class="row-index">01</span>
+          <svg class="arrow" width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="row-main">
+          <span class="row-title">Quant Mutual Fund<span class="badge">mf</span></span>
+          <span class="row-url">invest.quantmutualfund.com</span>
+        </span>
+      </a>
+      <a href="https://online.sbimf.com/login" target="_blank" rel="noopener" class="link-card" style="animation-delay: 20ms">
+        <span class="link-card-top">
+          <span class="row-index">02</span>
+          <svg class="arrow" width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="row-main">
+          <span class="row-title">SBI Mutual Fund<span class="badge">mf</span></span>
+          <span class="row-url">online.sbimf.com</span>
+        </span>
+      </a>
+      <a href="https://selfinvest.ppfas.com/v2/login" target="_blank" rel="noopener" class="link-card" style="animation-delay: 30ms">
+        <span class="link-card-top">
+          <span class="row-index">03</span>
+          <svg class="arrow" width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="row-main">
+          <span class="row-title">Parag Parikh Mutual Fund<span class="badge">mf</span></span>
+          <span class="row-url">selfinvest.ppfas.com</span>
+        </span>
+      </a>
+      <a href="https://www.icicipruamc.com/" target="_blank" rel="noopener" class="link-card" style="animation-delay: 40ms">
+        <span class="link-card-top">
+          <span class="row-index">04</span>
+          <svg class="arrow" width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="row-main">
+          <span class="row-title">ICICI Prudential<span class="badge">mf</span></span>
+          <span class="row-url">icicipruamc.com</span>
+        </span>
+      </a>
+      <a href="https://oneservice.adityabirlacapital.com/login" target="_blank" rel="noopener" class="link-card" style="animation-delay: 50ms">
+        <span class="link-card-top">
+          <span class="row-index">05</span>
+          <svg class="arrow" width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="row-main">
+          <span class="row-title">Aditya Birla Capital<span class="badge">mf</span></span>
+          <span class="row-url">oneservice.adityabirlacapital.com</span>
+        </span>
+      </a>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-header">
+      <span class="label"><span>--</span> BANKING</span>
+      <span class="count">7 links</span>
+    </div>
+    <div class="links-grid">
+      <a href="https://www.icici.bank.in/personal-banking/ways-to-bank/net-banking" target="_blank" rel="noopener" class="link-card" style="animation-delay: 10ms">
+        <span class="link-card-top">
+          <span class="row-index">01</span>
+          <svg class="arrow" width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="row-main">
+          <span class="row-title">ICICI Bank<span class="badge">netbanking</span></span>
+          <span class="row-url">icici.bank.in</span>
+        </span>
+      </a>
+      <a href="https://netbanking.kotak.bank.in/knb2/" target="_blank" rel="noopener" class="link-card" style="animation-delay: 20ms">
+        <span class="link-card-top">
+          <span class="row-index">02</span>
+          <svg class="arrow" width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="row-main">
+          <span class="row-title">Kotak Bank<span class="badge">netbanking</span></span>
+          <span class="row-url">netbanking.kotak.bank.in</span>
+        </span>
+      </a>
+      <a href="https://www.fednetbank.com/" target="_blank" rel="noopener" class="link-card" style="animation-delay: 30ms">
+        <span class="link-card-top">
+          <span class="row-index">03</span>
+          <svg class="arrow" width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="row-main">
+          <span class="row-title">Federal Bank<span class="badge">netbanking</span></span>
+          <span class="row-url">fednetbank.com</span>
+        </span>
+      </a>
+      <a href="https://now.hdfc.bank.in/" target="_blank" rel="noopener" class="link-card" style="animation-delay: 40ms">
+        <span class="link-card-top">
+          <span class="row-index">04</span>
+          <svg class="arrow" width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="row-main">
+          <span class="row-title">HDFC Bank<span class="badge">netbanking</span></span>
+          <span class="row-url">now.hdfc.bank.in</span>
+        </span>
+      </a>
+      <a href="https://yonoretail.sbi.bank.in/registration/welcome" target="_blank" rel="noopener" class="link-card" style="animation-delay: 50ms">
+        <span class="link-card-top">
+          <span class="row-index">05</span>
+          <svg class="arrow" width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="row-main">
+          <span class="row-title">SBI Bank<span class="badge">netbanking</span></span>
+          <span class="row-url">yonoretail.sbi.bank.in</span>
+        </span>
+      </a>
+      <a href="https://omni.axis.bank.in/axisretailbanking/" target="_blank" rel="noopener" class="link-card" style="animation-delay: 60ms">
+        <span class="link-card-top">
+          <span class="row-index">06</span>
+          <svg class="arrow" width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="row-main">
+          <span class="row-title">Axis Bank<span class="badge">netbanking</span></span>
+          <span class="row-url">omni.axis.bank.in</span>
+        </span>
+      </a>
+      <a href="https://uaibconnect.bankofindia.bank.in/omnineo" target="_blank" rel="noopener" class="link-card" style="animation-delay: 70ms">
+        <span class="link-card-top">
+          <span class="row-index">07</span>
+          <svg class="arrow" width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="row-main">
+          <span class="row-title">BOI Bank<span class="badge">netbanking</span></span>
+          <span class="row-url">uaibconnect.bankofindia.bank.in</span>
+        </span>
+      </a>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-header">
+      <span class="label"><span>--</span> EMPLOYEE</span>
+      <span class="count">2 links</span>
+    </div>
+    <div class="links-grid">
+      <a href="https://unifiedportal-mem.epfindia.gov.in/memberinterface/" target="_blank" rel="noopener" class="link-card" style="animation-delay: 10ms">
+        <span class="link-card-top">
+          <span class="row-index">01</span>
+          <svg class="arrow" width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="row-main">
+          <span class="row-title">EPFO Portal<span class="badge">epfo</span></span>
+          <span class="row-url">unifiedportal-mem.epfindia.gov.in</span>
+        </span>
+      </a>
+      <a href="https://passbook.epfindia.gov.in/MemberPassBook/login" target="_blank" rel="noopener" class="link-card" style="animation-delay: 20ms">
+        <span class="link-card-top">
+          <span class="row-index">02</span>
+          <svg class="arrow" width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="row-main">
+          <span class="row-title">EPFO Passbook<span class="badge">epfo</span></span>
+          <span class="row-url">passbook.epfindia.gov.in</span>
+        </span>
+      </a>
+    </div>
+  </div>
+
+</div>
 </body>
-
 </html>
